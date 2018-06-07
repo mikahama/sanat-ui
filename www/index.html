@@ -31,12 +31,12 @@
             <div class="main wrapper clearfix">
 
                         <h2>Uralilaisten kielten sanakirja</h2>
-                 <form onsubmit="searchWord(event)">      
+                 <form id="mainForm" onsubmit="searchWord(event)">      
                 	<div class="form-group">
                     <div class="input-group">
                         <input autocapitalize="off" class="form-control" type="text" name="search" id="searchField" placeholder="Kirjoita hakusana" required/>
                         <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"><span style="margin-left:10px;">Etsi</span></button>
+                            <button class="btn btn-success" id="searchButton" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"><span style="margin-left:10px;">Etsi</span></button>
                         </span>
                         </span>
                     </div>

@@ -188,6 +188,16 @@ function handleError(e){
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 function setLanguages(data){
 	showLoading(false);
 	var languages = data["languages"];
@@ -203,9 +213,18 @@ function setLanguages(data){
 	if (lastLang == null){
 		lastLang = "sms";
 	}
+	getLanguage = getParameterByName("lang");
+	if(getLanguage){
+		lastLang = getLanguage;
+	}
 	selectedLanguage = lastLang;
 	$('.language-list').removeClass('active');
 	$(".language-list[value=" + lastLang + "]").addClass("active");
+	getWord = getParameterByName("word");
+	if(getWord){
+		searchField.value = getWord;
+		searchButton.click();
+	}
 
 }
 function showLoading(show){

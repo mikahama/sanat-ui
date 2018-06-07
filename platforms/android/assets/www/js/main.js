@@ -1,7 +1,7 @@
 
 function getLanguages(){
 	$.ajax({
-  		url: "https://mikakalevi.com/sanat/smsxml/listLanguages/",
+  		url: "https://sanat.csc.fi/smsxml/listLanguages/",
 		success: setLanguages,
 		error: handleError
 	});
@@ -17,7 +17,7 @@ function searchWord(event){
 	localStorage.setItem("lastUsedLanguage", language);
 	showLoading(true);
 	$.ajax({
-  		url: "https://mikakalevi.com/sanat/smsxml/search/",
+  		url: "https://sanat.csc.fi/smsxml/search/",
   		data: {"language": language, "word": word},
 		success: showResults,
 		error: handleError
